@@ -2288,6 +2288,63 @@ p{margin:0}
 
 <style>
 /* ============================================
+ * Tailwind 임의값 (Arbitrary value) 클래스 보완
+ * shadow-[...], active:..., hover:scale 등
+ * ============================================ */
+
+/* shadow-[...] */
+.shadow-\[2px_2px_0_\#000\]{box-shadow:2px 2px 0 #000}
+.shadow-\[3px_3px_0_\#FED7AA\]{box-shadow:3px 3px 0 #FED7AA}
+.shadow-\[3px_3px_0_\#C7D2FE\]{box-shadow:3px 3px 0 #C7D2FE}
+.shadow-\[3px_3px_0_\#E9D5FF\]{box-shadow:3px 3px 0 #E9D5FF}
+.shadow-\[4px_4px_0_\#000\]{box-shadow:4px 4px 0 #000}
+.shadow-\[4px_4px_0_\#10B981\]{box-shadow:4px 4px 0 #10B981}
+.shadow-\[4px_4px_0_\#14B8A6\]{box-shadow:4px 4px 0 #14B8A6}
+.shadow-\[4px_4px_0_\#6366F1\]{box-shadow:4px 4px 0 #6366F1}
+.shadow-\[4px_4px_0_\#A855F7\]{box-shadow:4px 4px 0 #A855F7}
+.shadow-\[4px_4px_0_\#F97316\]{box-shadow:4px 4px 0 #F97316}
+.shadow-\[5px_5px_0_\#000\]{box-shadow:5px 5px 0 #000}
+.shadow-\[6px_6px_0_\#000\]{box-shadow:6px 6px 0 #000}
+.shadow-\[6px_6px_0_\#10B981\]{box-shadow:6px 6px 0 #10B981}
+.shadow-\[6px_6px_0_\#6366F1\]{box-shadow:6px 6px 0 #6366F1}
+.shadow-\[6px_6px_0_\#FDE047\]{box-shadow:6px 6px 0 #FDE047}
+.shadow-\[6px_6px_0_\#FFF\]{box-shadow:6px 6px 0 #FFF}
+.shadow-\[8px_8px_0_\#000\]{box-shadow:8px 8px 0 #000}
+.shadow-\[8px_8px_0_\#4F46E5\]{box-shadow:8px 8px 0 #4F46E5}
+.shadow-\[8px_8px_0_\#6366F1\]{box-shadow:8px 8px 0 #6366F1}
+.shadow-\[8px_8px_0_\#FDE047\]{box-shadow:8px 8px 0 #FDE047}
+.shadow-\[10px_10px_0_\#000\]{box-shadow:10px 10px 0 #000}
+
+/* active: 의사 클래스 */
+.active\:translate-x-1:active{transform:translateX(0.25rem)}
+.active\:translate-y-1:active{transform:translateY(0.25rem)}
+.active\:shadow-none:active{box-shadow:none}
+
+/* hover: scale / border 보완 */
+.hover\:scale-105:hover{transform:scale(1.05)}
+.hover\:scale-110:hover{transform:scale(1.1)}
+.hover\:border-orange-500:hover{border-color:#F97316}
+.hover\:border-indigo-500:hover{border-color:#6366F1}
+.hover\:border-purple-500:hover{border-color:#A855F7}
+.hover\:border-pink-500:hover{border-color:#EC4899}
+.hover\:text-black:hover{color:#000}
+.hover\:text-white:hover{color:#fff}
+.hover\:bg-red-500:hover{background-color:#EF4444}
+
+/* group-hover */
+.group:hover .group-hover\:scale-110{transform:scale(1.1)}
+
+/* leading-[...] (line-height 임의값) */
+.leading-\[1\.55\]{line-height:1.55}
+.leading-\[1\.6\]{line-height:1.6}
+.leading-\[1\.65\]{line-height:1.65}
+.leading-\[1\.8\]{line-height:1.8}
+.leading-\[2\.0\]{line-height:2.0}
+
+/* text-[10px] 임의값 */
+.text-\[10px\]{font-size:10px;line-height:1}
+
+/* ============================================
  * 앱 전용 디자인 시스템
  * ============================================ */
 
@@ -2320,8 +2377,6 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: white;
-    color: #111827;
 }
 
 .retro-btn:hover:not(:disabled) {
@@ -2347,7 +2402,6 @@ body {
     border-radius: 1.25rem;
     font-weight: 800;
     transition: all 0.2s;
-    background: white;
 }
 
 .choice-btn.selected {
