@@ -2288,63 +2288,6 @@ p{margin:0}
 
 <style>
 /* ============================================
- * Tailwind 임의값 (Arbitrary value) 클래스 보완
- * shadow-[...], active:..., hover:scale 등
- * ============================================ */
-
-/* shadow-[...] */
-.shadow-\[2px_2px_0_\#000\]{box-shadow:2px 2px 0 #000}
-.shadow-\[3px_3px_0_\#FED7AA\]{box-shadow:3px 3px 0 #FED7AA}
-.shadow-\[3px_3px_0_\#C7D2FE\]{box-shadow:3px 3px 0 #C7D2FE}
-.shadow-\[3px_3px_0_\#E9D5FF\]{box-shadow:3px 3px 0 #E9D5FF}
-.shadow-\[4px_4px_0_\#000\]{box-shadow:4px 4px 0 #000}
-.shadow-\[4px_4px_0_\#10B981\]{box-shadow:4px 4px 0 #10B981}
-.shadow-\[4px_4px_0_\#14B8A6\]{box-shadow:4px 4px 0 #14B8A6}
-.shadow-\[4px_4px_0_\#6366F1\]{box-shadow:4px 4px 0 #6366F1}
-.shadow-\[4px_4px_0_\#A855F7\]{box-shadow:4px 4px 0 #A855F7}
-.shadow-\[4px_4px_0_\#F97316\]{box-shadow:4px 4px 0 #F97316}
-.shadow-\[5px_5px_0_\#000\]{box-shadow:5px 5px 0 #000}
-.shadow-\[6px_6px_0_\#000\]{box-shadow:6px 6px 0 #000}
-.shadow-\[6px_6px_0_\#10B981\]{box-shadow:6px 6px 0 #10B981}
-.shadow-\[6px_6px_0_\#6366F1\]{box-shadow:6px 6px 0 #6366F1}
-.shadow-\[6px_6px_0_\#FDE047\]{box-shadow:6px 6px 0 #FDE047}
-.shadow-\[6px_6px_0_\#FFF\]{box-shadow:6px 6px 0 #FFF}
-.shadow-\[8px_8px_0_\#000\]{box-shadow:8px 8px 0 #000}
-.shadow-\[8px_8px_0_\#4F46E5\]{box-shadow:8px 8px 0 #4F46E5}
-.shadow-\[8px_8px_0_\#6366F1\]{box-shadow:8px 8px 0 #6366F1}
-.shadow-\[8px_8px_0_\#FDE047\]{box-shadow:8px 8px 0 #FDE047}
-.shadow-\[10px_10px_0_\#000\]{box-shadow:10px 10px 0 #000}
-
-/* active: 의사 클래스 */
-.active\:translate-x-1:active{transform:translateX(0.25rem)}
-.active\:translate-y-1:active{transform:translateY(0.25rem)}
-.active\:shadow-none:active{box-shadow:none}
-
-/* hover: scale / border 보완 */
-.hover\:scale-105:hover{transform:scale(1.05)}
-.hover\:scale-110:hover{transform:scale(1.1)}
-.hover\:border-orange-500:hover{border-color:#F97316}
-.hover\:border-indigo-500:hover{border-color:#6366F1}
-.hover\:border-purple-500:hover{border-color:#A855F7}
-.hover\:border-pink-500:hover{border-color:#EC4899}
-.hover\:text-black:hover{color:#000}
-.hover\:text-white:hover{color:#fff}
-.hover\:bg-red-500:hover{background-color:#EF4444}
-
-/* group-hover */
-.group:hover .group-hover\:scale-110{transform:scale(1.1)}
-
-/* leading-[...] (line-height 임의값) */
-.leading-\[1\.55\]{line-height:1.55}
-.leading-\[1\.6\]{line-height:1.6}
-.leading-\[1\.65\]{line-height:1.65}
-.leading-\[1\.8\]{line-height:1.8}
-.leading-\[2\.0\]{line-height:2.0}
-
-/* text-[10px] 임의값 */
-.text-\[10px\]{font-size:10px;line-height:1}
-
-/* ============================================
  * 앱 전용 디자인 시스템
  * ============================================ */
 
@@ -2377,6 +2320,8 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    background: white;
+    color: #111827;
 }
 
 .retro-btn:hover:not(:disabled) {
@@ -2402,6 +2347,7 @@ body {
     border-radius: 1.25rem;
     font-weight: 800;
     transition: all 0.2s;
+    background: white;
 }
 
 .choice-btn.selected {
@@ -2588,7 +2534,7 @@ body {
 }
 
 /* ============================================
- * 선생님 메뉴 (설정 패널)
+ * 선생님 설정 (설정 패널)
  * - 시작 화면 '입장 안내' 버튼 바로 아래에 배치
  * - 학생 링크(#c=...)로 접속 시에는 DOM 자체에 렌더링되지 않음
  * ============================================ */
@@ -2820,7 +2766,7 @@ body {
                 활동 안내 확인하기
             </button>
 
-            <!-- 선생님 메뉴: 입장 버튼 바로 아래에 배치 (학생 링크로 접속 시 DOM에서 제거) -->
+            <!-- 선생님 설정: 입장 버튼 바로 아래에 배치 (학생 링크로 접속 시 DOM에서 제거) -->
             <div id="teacherPanelWrap" class="teacher-panel-wrap"></div>
         </div>
     </div>
@@ -3695,7 +3641,7 @@ function finishAndClearProgress() {
 }
 
 /* -----------------------------------------------------------
- * 시작 화면 / 선생님 메뉴
+ * 시작 화면 / 선생님 설정
  * ----------------------------------------------------------- */
 function renderTeacherPanel() {
     const wrap = $("teacherPanelWrap");
@@ -3718,10 +3664,10 @@ function renderTeacherPanel() {
     wrap.innerHTML =
         '<button id="teacherToggleBtn" class="teacher-toggle" type="button" aria-expanded="false">' +
             '<span class="gear">⚙️</span>' +
-            "<span>'선생님 메뉴' 열기</span>" +
+            "<span>'선생님 설정' 열기</span>" +
         '</button>' +
         '<div id="teacherPanelBody" class="teacher-panel hidden">' +
-            '<div class="teacher-panel-title"><span>⚙️</span>' + "'선생님 메뉴'</div>" +
+            '<div class="teacher-panel-title"><span>⚙️</span>' + "'선생님 설정'</div>" +
             '<p class="teacher-panel-desc">' +
                 '선생님이 운영하는 시트 주소(.../exec)를 한 번만 입력하면, 이 기기는 그 시트에 연결됩니다. ' +
                 '학생용 입장 주소를 만들어 학생들에게 전달하면 학생은 별도 설정 없이 바로 활동할 수 있어요.' +
@@ -5148,5 +5094,78 @@ if (document.readyState === 'loading') {
 })();
 </script>
 
+<script>
+/* 연결 해제 — 화면에 그려진 '연결하기' 버튼을 찾아 그 바로 아래에 붙입니다.
+   설정 창을 열었을 때만 보이고, 학생용 링크에서는 나오지 않습니다.
+   (문서를 건드리지 않고 화면이 그려진 뒤에 붙이므로 앱 코드에 영향이 없습니다) */
+(function () {
+  var PAT = /exec|gasurl|gas_url|serverurl|server_url|sheet_api|apiurl|api_url|appserverurl|endpoint|gas/i;
+  function keys() {
+    var out = [];
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i) || '', v = localStorage.getItem(k) || '';
+        if (PAT.test(k) && /^https?:\/\//.test(v)) out.push(k);
+      }
+    } catch (e) {}
+    return out;
+  }
+  function isLink() { try { return /[#&]c=/.test(location.hash || ''); } catch (e) { return false; } }
+  function findConnectBtn() {
+    var all = document.querySelectorAll('button, a[role="button"], input[type="button"], input[type="submit"]');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      var t = (el.textContent || el.value || '').replace(/\s+/g, '');
+      if (!/연결하기|시트연결|저장하고시작하기|주소저장|연결$/.test(t)) continue;
+      return el;
+    }
+    return null;
+  }
+  function make() {
+    var b = document.createElement('button');
+    b.id = '__cutSmart';
+    b.type = 'button';
+    b.textContent = '\uD83D\uDD0C \uC5F0\uACB0 \uD574\uC81C';
+    b.style.cssText = 'display:block;width:100%;margin-top:8px;background:#fff;color:#b91c1c;'
+      + 'border:2px solid #fecaca;border-radius:10px;padding:9px 14px;font-size:14px;'
+      + 'font-weight:700;cursor:pointer;font-family:inherit;box-sizing:border-box;';
+    b.onclick = function (ev) {
+      ev.preventDefault(); ev.stopPropagation();
+      var ks = keys();
+      if (!ks.length) { alert('연결된 시트 주소가 없어요.'); return; }
+      if (!confirm('이 기기에서 시트 연결을 끊을까요?\n\n시트에 저장된 학생 기록은 지워지지 않아요.\n다시 연결하려면 주소를 붙여 넣으면 됩니다.')) return;
+      ks.forEach(function (k) { try { localStorage.removeItem(k); } catch (e) {} });
+      alert('연결을 끊었어요. 화면을 새로 불러올게요.');
+      try { location.hash = ''; } catch (e) {}
+      location.reload();
+    };
+    return b;
+  }
+  function sync() {
+    var old = document.getElementById('__cutSmart');
+    if (isLink() || keys().length === 0) { if (old && old.parentNode) old.parentNode.removeChild(old); return; }
+    var target = findConnectBtn();
+    if (!target) { if (old && old.parentNode) old.parentNode.removeChild(old); return; }
+    if (old && old.previousElementSibling === target) return;
+    if (old && old.parentNode) old.parentNode.removeChild(old);
+    var b = make();
+    if (target.parentNode) target.parentNode.insertBefore(b, target.nextSibling);
+  }
+  function boot() {
+    sync();
+    setTimeout(sync, 900);
+    setTimeout(sync, 2500);
+    document.addEventListener('click', function () { setTimeout(sync, 350); }, true);
+    try {
+      new MutationObserver(function () {
+        clearTimeout(window.__cutT);
+        window.__cutT = setTimeout(sync, 250);
+      }).observe(document.body, { childList: true, subtree: true });
+    } catch (e) {}
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
 </body>
 </html>
